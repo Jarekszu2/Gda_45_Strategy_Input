@@ -22,11 +22,12 @@ public class Main {
             reader.setStrategy(new FileStrategy());
         }
 
-
+        // brake;
         while (sc.hasNextLine()) {
             String command = sc.next();
             if (command.equals("getint")) {
-                System.out.println(reader.requestInt());
+                System.out.println(reader.getStrategy().getInt());  // można i tak zamiast metody requestInt()
+//                System.out.println(reader.requestInt());
             } else if (command.equals("getstring")) {
                 System.out.println(reader.requestString());
             } else if (command.equals("getdouble")) {
@@ -40,6 +41,8 @@ public class Main {
                 } else if (type.equals("file")) {
                     reader.setStrategy(new FileStrategy());
                 }
+            } else if (command.equalsIgnoreCase("quit")) {
+                break;
             }
         }
 
